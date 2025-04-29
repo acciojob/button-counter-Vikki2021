@@ -1,11 +1,22 @@
 
-import React from "react";
+import React, { useEffect, useState } from "react";
 import './../styles/App.css';
 
 const App = () => {
+  const [count,setCount] = useState(0);
+
+  const handleClick = () => {
+    setCount((count) => count + 1);
+  };
+
+  useEffect(()=>{
+    handleClick();
+  },[])
+
   return (
     <div>
-        {/* Do not remove the main div */}
+        <p>Button click {count} times</p>
+        <button onClick={handleClick}>Click me</button>
     </div>
   )
 }
